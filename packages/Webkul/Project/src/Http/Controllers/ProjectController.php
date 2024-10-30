@@ -6,11 +6,16 @@ use Illuminate\Routing\Controller;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+use Webkul\Project\Repositories\ProjectRepository;
 
 class ProjectController extends Controller
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
+
+    public function __construct(protected ProjectRepository $projectRepository)
+    {
+    }
     /**
      * Display a listing of the resource.
      *
@@ -18,7 +23,8 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        return view('project::index');
+        $projects = $this->projectRepository->all();
+        return view('project::project.index', compact('projects'));
     }
 
     /**
@@ -38,7 +44,7 @@ class ProjectController extends Controller
      */
     public function store()
     {
-        
+
     }
 
     /**
@@ -60,7 +66,7 @@ class ProjectController extends Controller
      */
     public function update($id)
     {
-        
+
     }
 
     /**
@@ -71,6 +77,6 @@ class ProjectController extends Controller
      */
     public function destroy($id)
     {
-        
+
     }
 }
