@@ -49,3 +49,8 @@ require 'configuration-routes.php';
  * Rest routes.
  */
 require 'rest-routes.php';
+
+/**
+ * Project routes.
+ */
+require 'project-routes.php';

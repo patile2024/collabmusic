@@ -273,4 +273,12 @@ return [
         'sort'       => 9,
         'icon-class' => 'icon-configuration',
     ],
+
+    [
+        'key'        => 'project',
+        'name'       => 'admin::app.layouts.projects',
+        'route'      => 'admin.projects.index',
+        'sort'       => 9,
+        'icon-class' => 'icon-configuration',
+    ],
 ];
