@@ -10,7 +10,7 @@
             <div class="flex flex-col gap-2">
                 <div class="flex cursor-pointer items-center">
                     {!! view_render_event('admin.mail.create.breadcrumbs.before') !!}
-                    
+
                     <!-- breadcrumbs -->
                     <x-admin::breadcrumbs
                         name="mail.route"
@@ -52,7 +52,7 @@
             <x-admin::shimmer.mail.datagrid />
         </v-mail>
     </div>
-    
+
     @pushOnce('scripts')
         <script
             type="text/x-template"
@@ -64,7 +64,7 @@
            <x-admin::datagrid
                 ref="datagrid"
                 :src="route('admin.mail.index', request('route'))"
-            >   
+            >
                 <template #header="{
                     isLoading,
                     available,
@@ -75,7 +75,7 @@
                 }">
                     <div></div>
                 </template>
-            
+
                 <template #body="{
                     isLoading,
                     available,
@@ -84,11 +84,11 @@
                     sort,
                     performAction
                 }">
-                
+
                     <template v-if="isLoading">
                         <x-admin::shimmer.mail.datagrid.table.body />
                     </template>
-        
+
                     <template v-else>
                         <div
                             v-for="record in available.records"
@@ -120,7 +120,7 @@
                                                 v-model="applied.massActions.indices"
                                                 @click.stop
                                             >
-                        
+
                                             <label
                                                 class="icon-checkbox-outline peer-checked:icon-checkbox-select cursor-pointer rounded-md text-2xl !text-gray-500 peer-checked:!text-brandColor dark:!text-gray-300"
                                                 :for="`mass_action_select_record_${record.id}`"
@@ -128,7 +128,7 @@
                                             ></label>
                                         </div>
                                     </div>
-                                
+
                                     <p class="overflow-hidden text-ellipsis whitespace-nowrap leading-none">@{{ record.name }}</p>
                                 </div>
 
@@ -159,7 +159,7 @@
                                             v-html="truncatedReply(record.reply)"
                                         ></p>
                                     </div>
-                                
+
                                     <!-- Time -->
                                     <div class="min-w-[80px] flex-shrink-0 text-right">
                                         <p class="leading-none">@{{ record.created_at }}</p>
@@ -217,7 +217,7 @@
                                         :label="trans('admin::app.mail.index.mail.to')"
                                         :placeholder="trans('admin::app.mail.index.mail.enter-emails')"
                                     />
-                                    
+
                                     <div class="absolute top-[9px] flex items-center gap-2 ltr:right-2 rtl:left-2">
                                         <span
                                             class="cursor-pointer font-medium hover:underline dark:text-white"
@@ -419,7 +419,7 @@
                         if (reply.length > maxLength) {
                             return `${reply.substring(0, maxLength)}...`;
                         }
-                        
+
                         return reply;
                     },
 
@@ -483,7 +483,7 @@
                                 this.showCC = this.draft.cc.length > 0;
 
                                 this.showBCC = this.draft.bcc.length > 0;
-                                
+
                             })
                             .catch(error => {});
                     },

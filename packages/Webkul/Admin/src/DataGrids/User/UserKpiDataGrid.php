@@ -16,13 +16,11 @@ class UserKpiDataGrid extends DataGrid
     public function prepareQueryBuilder(): Builder
     {
         $queryBuilder = DB::table('user_kpis')
-            ->join('users', 'user_kpis.user_id', '=', 'users.id')
             ->select(
                 'user_kpis.id',
                 'user_kpis.user_id',
                 'user_kpis.date',
                 'user_kpis.kpi',
-                'users.name as user_name'
             );
 
         $this->addFilter('id', 'user_kpis.id');
@@ -46,7 +44,7 @@ class UserKpiDataGrid extends DataGrid
         ]);
 
         $this->addColumn([
-            'index'      => 'user_name',
+            'index'      => 'user_id',
             'label'      => 'User name',
             'type'       => 'string',
             'sortable'   => true,

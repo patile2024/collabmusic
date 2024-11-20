@@ -2,6 +2,7 @@
 
 namespace Webkul\Admin\Http\Controllers\User;
 
+use Illuminate\Http\Request as HttpRequest;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Request;
 use Maatwebsite\Excel\Excel;
@@ -55,36 +56,37 @@ class UserKpiController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store()
     {
-        // Validate the uploaded file
-        $request->validate([
+        // dd(request()->all());
+        $this->validate(request(), [
             'file' => 'required|file|mimes:xlsx,xls',
         ]);
 
-        $filePath = $request->file('file')->getRealPath();
+        $filePath = request()->file('file')->getRealPath();
 
-        // Read the Excel file
         $data = FacadesExcel::toArray([], $filePath);
 
-        // Assuming the first sheet is used
         $rows = $data[0];
 
-        // Extract dates from the second row (header row)
-        $headers = $rows[0]; // First row is the header
-        $dates = array_slice($headers, 1, -1); // Columns 2-31 are dates
+        // Get the current month and year
+        $currentMonth = Carbon::now()->month;
+        $currentYear = Carbon::now()->year;
 
-        // Process each row for users and KPIs
+        // Headers contain the days (1, 2, 3, ..., 31)
+        $headers = $rows[0];
+        $dates = array_slice($headers, 1, -1);
+
         foreach (array_slice($rows, 1) as $row) {
-            $userName = $row[0]; // First column is the user/channel name
+            $userName = $row[0];
 
-            foreach ($dates as $index => $dateString) {
-                $kpi = $row[$index + 1]; // Corresponding KPI value
+            foreach ($dates as $index => $day) {
+                $kpi = $row[$index + 1];
                 if ($kpi !== null) {
-                    // Convert the date from the header
+                    // Create a date string using the current month and year
+                    $dateString = sprintf('%02d/%02d/%d', $day, $currentMonth, $currentYear);
                     $date = Carbon::createFromFormat('d/m/Y', $dateString)->format('Y-m-d');
 
-                    // Insert into the database
                     UserKpi::create([
                         'user_id' => $userName,
                         'date' => $date,
