@@ -16,7 +16,7 @@
                 <div style="margin-bottom: 45px;">
                     <a href="{{ config('app.url') }}">
                         <img
-                            src="{{ vite()->asset('images/logo.svg') }}"
+                            src="{{ asset('admin/build/assets/collab-logo.svg') }}"
                             alt="{{ config('app.name') }}"
                             style="height: 40px; width: 110px;"
                         />

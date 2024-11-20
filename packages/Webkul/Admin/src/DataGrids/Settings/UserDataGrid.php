@@ -26,9 +26,9 @@ class UserDataGrid extends DataGrid
             )
             ->leftJoin('user_groups', 'users.id', '=', 'user_groups.user_id');
 
-        if ($userIds = bouncer()->getAuthorizedUserIds()) {
-            $queryBuilder->whereIn('users.user_id', $userIds);
-        }
+        // if ($userIds = bouncer()->getAuthorizedUserIds()) {
+        //     $queryBuilder->whereIn('users.user_id', $userIds);
+        // }
 
         $this->addFilter('id', 'users.id');
 

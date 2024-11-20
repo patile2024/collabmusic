@@ -1680,8 +1680,8 @@ return [
 
             'kanban' => [
                 'rotten-days'            => 'Khách hàng tiềm năng đã hết hạn trong :days ngày',
-                'empty-list'             => 'Danh sách khách hàng tiềm năng của bạn trống',
-                'empty-list-description' => 'Tạo một khách hàng tiềm năng để tổ chức các mục tiêu của bạn.',
+                'empty-list'             => 'Danh sách dự án của bạn trống',
+                'empty-list-description' => 'Tạo một dự án để tổ chức các mục tiêu của bạn.',
                 'create-lead-btn'        => 'Tạo Khách Hàng Tiềm Năng',
 
                 'columns' => [

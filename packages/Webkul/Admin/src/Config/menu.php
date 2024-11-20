@@ -27,9 +27,9 @@ return [
      * Quotes.
      */
     [
-        'key'        => 'quotes',
-        'name'       => 'admin::app.layouts.quotes',
-        'route'      => 'admin.quotes.index',
+        'key'        => 'userkpis',
+        'name'       => 'Doanh số',
+        'route'      => 'admin.user_kpi.index',
         'sort'       => 3,
         'icon-class' => 'icon-quote',
     ],

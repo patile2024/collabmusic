@@ -547,4 +547,10 @@ return [
         'route' => 'admin.configuration.index',
         'sort'  => 9,
     ],
+    [
+        'key'   => 'user.user_kpis',
+        'name'  => 'Doanh số',
+        'route' => 'admin.user_kpi.index',
+        'sort'  => 9,
+    ]
 ];

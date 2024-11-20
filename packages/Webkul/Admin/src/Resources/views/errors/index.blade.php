@@ -9,10 +9,10 @@
         <div class="flex max-w-[745px] items-center gap-5">
             <div class="flex w-full flex-col gap-6">
                 <img
-                    src="{{ 
-                        request()->cookie('dark_mode') 
-                        ? vite()->asset('images/dark-logo.svg') 
-                        : vite()->asset('images/logo.svg') 
+                    src="{{
+                        request()->cookie('dark_mode')
+                        ? vite()->asset('images/dark-logo.svg')
+                        : asset('admin/build/assets/collab-logo.svg')
                     }}"
                     class="w-40 ltr:pr-16 rtl:pl-16"
                 >
@@ -57,12 +57,12 @@
             </div>
 
             <div class="w-full">
-                <img 
-                    src="{{ 
-                        request()->cookie('dark_mode') 
-                        ? vite()->asset('images/dark-error.svg') 
-                        : vite()->asset('images/error.svg') 
-                    }}" 
+                <img
+                    src="{{
+                        request()->cookie('dark_mode')
+                        ? vite()->asset('images/dark-error.svg')
+                        : vite()->asset('images/error.svg')
+                    }}"
                 />
             </div>
         </div>

@@ -28,11 +28,11 @@
                         {{ $setting->getInfo() }}
                     </p>
                 </div>
-            
+
                 <div class="box-shadow max-1580:grid-cols-3 mt-2 grid grid-cols-4 flex-wrap justify-between gap-12 rounded bg-white p-4 dark:bg-gray-900 max-xl:grid-cols-2 max-sm:grid-cols-1">
                     <!-- Menus cards -->
                     @foreach ($setting->getChildren() as $key => $child)
-                        <a 
+                        <a
                             class="flex max-w-[360px] items-center gap-2 rounded-lg p-2 transition-all hover:bg-gray-100 dark:hover:bg-gray-950"
                             href="{{ $child->getUrl() }}"
                         >
@@ -46,7 +46,7 @@
                                 <p class="mb-1.5 text-base font-semibold text-gray-800 dark:text-white">
                                     {{ $child->getName() }}
                                 </p>
-                                
+
                                 <p class="text-xs text-gray-600 dark:text-gray-300">
                                     {{ $child->getInfo() }}
                                 </p>

@@ -54,3 +54,8 @@ require 'rest-routes.php';
  * Project routes.
  */
 require 'project-routes.php';
+
+/**
+ * Project routes.
+ */
+require 'user-kpis.php';

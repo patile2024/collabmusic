@@ -6,7 +6,7 @@
         <a href="{{ route('admin.dashboard.index') }}">
             <img
                 class="h-10"
-                src="{{ request()->cookie('dark_mode') ? vite()->asset('images/dark-logo.svg') : vite()->asset('images/logo.svg') }}"
+                src="{{ asset('admin/build/assets/collab-logo.svg') }}"
                 id="logo-image"
                 alt="{{ config('app.name') }}"
             />
@@ -713,9 +713,9 @@
                 return {
                     isDarkMode: {{ request()->cookie('dark_mode') ?? 0 }},
 
-                    logo: "{{ vite()->asset('images/logo.svg') }}",
+                    logo: "{{ asset('admin/build/assets/collab-logo.svg') }}",
 
-                    dark_logo: "{{ vite()->asset('images/dark-logo.svg') }}",
+                    dark_logo: "{{ asset('admin/build/assets/collab-logo.svg') }}",
                 };
             },
 
